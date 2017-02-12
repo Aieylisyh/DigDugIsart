@@ -1,0 +1,1207 @@
+fileFormatVersion: 2
+guid: 12d6840cfb7401749b8e53aba6696ff8
+timeCreated: 1486908463
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: NES - Dig Dug - General Sprite2_0
+    21300002: NES - Dig Dug - General Sprite2_1
+    21300004: NES - Dig Dug - General Sprite2_2
+    21300006: NES - Dig Dug - General Sprite2_3
+    21300008: NES - Dig Dug - General Sprite2_4
+    21300010: NES - Dig Dug - General Sprite2_5
+    21300012: NES - Dig Dug - General Sprite2_6
+    21300014: NES - Dig Dug - General Sprite2_7
+    21300016: NES - Dig Dug - General Sprite2_8
+    21300018: NES - Dig Dug - General Sprite2_9
+    21300020: NES - Dig Dug - General Sprite2_10
+    21300022: NES - Dig Dug - General Sprite2_11
+    21300024: NES - Dig Dug - General Sprite2_12
+    21300026: NES - Dig Dug - General Sprite2_13
+    21300028: NES - Dig Dug - General Sprite2_14
+    21300030: NES - Dig Dug - General Sprite2_15
+    21300032: NES - Dig Dug - General Sprite2_16
+    21300034: NES - Dig Dug - General Sprite2_17
+    21300036: NES - Dig Dug - General Sprite2_18
+    21300038: NES - Dig Dug - General Sprite2_19
+    21300040: NES - Dig Dug - General Sprite2_20
+    21300042: NES - Dig Dug - General Sprite2_21
+    21300044: NES - Dig Dug - General Sprite2_22
+    21300046: NES - Dig Dug - General Sprite2_23
+    21300048: NES - Dig Dug - General Sprite2_24
+    21300050: NES - Dig Dug - General Sprite2_25
+    21300052: NES - Dig Dug - General Sprite2_26
+    21300054: NES - Dig Dug - General Sprite2_27
+    21300056: NES - Dig Dug - General Sprite2_28
+    21300058: NES - Dig Dug - General Sprite2_29
+    21300060: NES - Dig Dug - General Sprite2_30
+    21300062: NES - Dig Dug - General Sprite2_31
+    21300064: NES - Dig Dug - General Sprite2_32
+    21300066: NES - Dig Dug - General Sprite2_33
+    21300068: NES - Dig Dug - General Sprite2_34
+    21300070: NES - Dig Dug - General Sprite2_35
+    21300072: NES - Dig Dug - General Sprite2_36
+    21300074: NES - Dig Dug - General Sprite2_37
+    21300076: NES - Dig Dug - General Sprite2_38
+    21300078: NES - Dig Dug - General Sprite2_39
+    21300080: NES - Dig Dug - General Sprite2_40
+    21300082: NES - Dig Dug - General Sprite2_41
+    21300084: NES - Dig Dug - General Sprite2_42
+    21300086: NES - Dig Dug - General Sprite2_43
+    21300088: NES - Dig Dug - General Sprite2_44
+    21300090: NES - Dig Dug - General Sprite2_45
+    21300092: NES - Dig Dug - General Sprite2_46
+    21300094: NES - Dig Dug - General Sprite2_47
+    21300096: NES - Dig Dug - General Sprite2_48
+    21300098: NES - Dig Dug - General Sprite2_49
+    21300100: NES - Dig Dug - General Sprite2_50
+    21300102: NES - Dig Dug - General Sprite2_51
+    21300104: NES - Dig Dug - General Sprite2_52
+    21300106: NES - Dig Dug - General Sprite2_53
+    21300108: NES - Dig Dug - General Sprite2_54
+    21300110: NES - Dig Dug - General Sprite2_55
+    21300112: NES - Dig Dug - General Sprite2_56
+    21300114: NES - Dig Dug - General Sprite2_57
+    21300116: NES - Dig Dug - General Sprite2_58
+    21300118: NES - Dig Dug - General Sprite2_59
+    21300120: NES - Dig Dug - General Sprite2_60
+    21300122: NES - Dig Dug - General Sprite2_61
+    21300124: NES - Dig Dug - General Sprite2_62
+    21300126: NES - Dig Dug - General Sprite2_63
+    21300128: NES - Dig Dug - General Sprite2_64
+    21300130: NES - Dig Dug - General Sprite2_65
+    21300132: NES - Dig Dug - General Sprite2_66
+    21300134: NES - Dig Dug - General Sprite2_67
+    21300136: NES - Dig Dug - General Sprite2_68
+    21300138: NES - Dig Dug - General Sprite2_69
+    21300140: NES - Dig Dug - General Sprite2_70
+    21300142: NES - Dig Dug - General Sprite2_71
+    21300144: NES - Dig Dug - General Sprite2_72
+    21300146: NES - Dig Dug - General Sprite2_73
+    21300148: NES - Dig Dug - General Sprite2_74
+    21300150: NES - Dig Dug - General Sprite2_75
+    21300152: NES - Dig Dug - General Sprite2_76
+    21300154: NES - Dig Dug - General Sprite2_77
+    21300156: NES - Dig Dug - General Sprite2_78
+    21300158: NES - Dig Dug - General Sprite2_79
+    21300160: NES - Dig Dug - General Sprite2_80
+    21300162: NES - Dig Dug - General Sprite2_81
+    21300164: NES - Dig Dug - General Sprite2_82
+    21300166: NES - Dig Dug - General Sprite2_83
+    21300168: NES - Dig Dug - General Sprite2_84
+    21300170: NES - Dig Dug - General Sprite2_85
+    21300172: NES - Dig Dug - General Sprite2_86
+    21300174: NES - Dig Dug - General Sprite2_87
+    21300176: NES - Dig Dug - General Sprite2_88
+    21300178: NES - Dig Dug - General Sprite2_89
+    21300180: NES - Dig Dug - General Sprite2_90
+    21300182: NES - Dig Dug - General Sprite2_91
+    21300184: NES - Dig Dug - General Sprite2_92
+    21300186: NES - Dig Dug - General Sprite2_93
+    21300188: NES - Dig Dug - General Sprite2_94
+    21300190: NES - Dig Dug - General Sprite2_95
+    21300192: NES - Dig Dug - General Sprite2_96
+    21300194: NES - Dig Dug - General Sprite2_97
+    21300196: NES - Dig Dug - General Sprite2_98
+    21300198: NES - Dig Dug - General Sprite2_99
+    21300200: NES - Dig Dug - General Sprite2_100
+    21300202: NES - Dig Dug - General Sprite2_101
+    21300204: NES - Dig Dug - General Sprite2_102
+    21300206: NES - Dig Dug - General Sprite2_103
+    21300208: NES - Dig Dug - General Sprite2_104
+    21300210: NES - Dig Dug - General Sprite2_105
+    21300212: NES - Dig Dug - General Sprite2_106
+    21300214: NES - Dig Dug - General Sprite2_107
+    21300216: NES - Dig Dug - General Sprite2_108
+    21300218: NES - Dig Dug - General Sprite2_109
+    21300220: NES - Dig Dug - General Sprite2_110
+    21300222: NES - Dig Dug - General Sprite2_111
+    21300224: NES - Dig Dug - General Sprite2_112
+    21300226: NES - Dig Dug - General Sprite2_113
+    21300228: NES - Dig Dug - General Sprite2_114
+    21300230: NES - Dig Dug - General Sprite2_115
+    21300232: NES - Dig Dug - General Sprite2_116
+    21300234: NES - Dig Dug - General Sprite2_117
+    21300236: NES - Dig Dug - General Sprite2_118
+    21300238: NES - Dig Dug - General Sprite2_119
+    21300240: NES - Dig Dug - General Sprite2_120
+    21300242: NES - Dig Dug - General Sprite2_121
+    21300244: NES - Dig Dug - General Sprite2_122
+    21300246: NES - Dig Dug - General Sprite2_123
+    21300248: NES - Dig Dug - General Sprite2_124
+    21300250: NES - Dig Dug - General Sprite2_125
+    21300252: NES - Dig Dug - General Sprite2_126
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 0
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 186
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 186
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 186
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_3
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 186
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_4
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 186
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 186
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_6
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 187
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_7
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 187
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 186
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_9
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 186
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_10
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 186
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_11
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 186
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_12
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 186
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_13
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 186
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 170
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 172
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 170
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_17
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 170
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 168
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_19
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 168
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_20
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 168
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_21
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 168
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_22
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 168
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_23
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 168
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_24
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 170
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_25
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 170
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_26
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 172
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_27
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 170
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 150
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_29
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 150
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_30
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 150
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_31
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 150
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 150
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_33
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 150
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_34
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 150
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_35
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 150
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_36
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 150
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_37
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 150
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_38
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 150
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_39
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 150
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_40
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 150
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_41
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 150
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_42
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 118
+        width: 5
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_43
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 118
+        width: 5
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_44
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 143
+        width: 30
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_45
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 122
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_46
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 122
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_47
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 122
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_48
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 136
+        width: 30
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 124
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_50
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 124
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_51
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 126
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_52
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 126
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_53
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 122
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_54
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 122
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 95
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_56
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 95
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_57
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 95
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_62
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 95
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_63
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 95
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_64
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 95
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_65
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 95
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_66
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 95
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_69
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 77
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_70
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 77
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_71
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 76
+        width: 48
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 58
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_73
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 58
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_74
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 58
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_75
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 52
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_76
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_77
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 42
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_78
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 68
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_79
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 5
+        width: 76
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_58
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 96
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NES - Dig Dug - General Sprite2_59
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 95
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
