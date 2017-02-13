@@ -9,13 +9,15 @@ public class PlayerAction : CharacterAction {
 
     [SerializeField]
     [Range(0.1f,1)]
-    private float attackInterval = 0.5f;
+    private float attackInterval = 0.3f;
     [SerializeField]//enable this for debugging
     private bool isDigging = false;
     [SerializeField]
-    [Range(1f, 4f)]
-    private float attackRange = 1.0f;
+    [Range(0.2f, 1.6f)]
+    private float attackRange = 0.5f;
 
+    [SerializeField]
+    private GameObject prefab_attack;
     protected override void Start()
     {
         base.Start();
@@ -63,8 +65,8 @@ public class PlayerAction : CharacterAction {
         {
             SwitchAnimState(AnimationState.Attack);
         }
-        //Instantiate();
-        //show rope
+        GameObject attackRope = (GameObject)Instantiate(prefab_attack);
+        attackRope.GetComponent<AttackRope>().Init(myDirection, shootLength, transform.position);
         Invoke("AttackEnd", attackInterval);
     }
 

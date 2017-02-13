@@ -6,7 +6,7 @@ public class CharacterAction : MonoBehaviour
 {
     protected Animator myAnimator;
 
-    protected enum Direction { Up, Down, Right, Left };
+    public enum Direction { Up, Down, Right, Left };
     protected Direction myDirection = Direction.Left;
     protected enum HorizontalFacing { Right, Left };
     protected HorizontalFacing myHorizontalFacing = HorizontalFacing.Left;
