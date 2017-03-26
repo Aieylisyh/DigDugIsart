@@ -34,20 +34,26 @@ public class PlayerAction : CharacterAction {
         {
             isMoving = false;
             Attack();
-        }else if (hInput != 0 && (myPlayerState == PlayerState.Free || myPlayerState == PlayerState.Moving))
+            myAnimator.speed = 1;
+        }
+        else if (hInput != 0 && (myPlayerState == PlayerState.Free || myPlayerState == PlayerState.Moving))
         {
             isMoving = true;
             //myPlayerState = PlayerState.Moving;
             TryTurn(hInput>0?Direction.Right:Direction.Left);
-        }else if (vInput != 0 && (myPlayerState == PlayerState.Free || myPlayerState == PlayerState.Moving))
+            myAnimator.speed = 1;
+        }
+        else if (vInput != 0 && (myPlayerState == PlayerState.Free || myPlayerState == PlayerState.Moving))
         {
             isMoving = true;
             //myPlayerState = PlayerState.Moving;
             TryTurn(vInput > 0 ? Direction.Up : Direction.Down);
+            myAnimator.speed = 1;
         }
         else
         {
             isMoving = false;
+            myAnimator.speed = 0;
         }
     }
 
