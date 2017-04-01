@@ -31,6 +31,5 @@ ExportedObj/
 # Builds
 *.apk
 *.unitypackage
-Library
 
 !/Deliveries/3C/*.apk
