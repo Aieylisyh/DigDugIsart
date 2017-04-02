@@ -64,7 +64,7 @@ public class DragonAction : EnemyAction
                     return;
                 }
                 if (attackCoolDownRest <= 0
-                    && Mathf.Abs(PlayerAction.instance.transform.position.y - this.transform.position.y)< m_turningTolerance*2
+                    && Mathf.Abs(PlayerAction.instance.transform.position.y - this.transform.position.y)< 2.2f
                     && GetDistanceToPlayer() > attackDistanceMin
                     && GetDistanceToPlayer() < attackDistanceMax
                     && Random.value < attackChance)
@@ -135,6 +135,7 @@ public class DragonAction : EnemyAction
             case EnemyState.Attacking:
                 myAnimator.SetTrigger("startAttack");
                 isMoving = false;
+                myAnimator.speed = 0.5f;
                 Invoke("Attack", attackPrepareTime);
                 break;
             case EnemyState.StealthMoving:
@@ -161,6 +162,8 @@ public class DragonAction : EnemyAction
 
     private void Attack()
     {
+        GameObject go = (GameObject)Instantiate(prefab_attack, transform.position, Quaternion.identity);
+        go.transform.localScale = new Vector3(sprite.transform.localScale.x,1,1);
         Invoke("StopAttack", attackEndTime);
     }
 
