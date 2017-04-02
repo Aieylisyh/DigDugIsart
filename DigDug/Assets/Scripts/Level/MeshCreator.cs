@@ -19,6 +19,15 @@ public class MeshCreator : MonoBehaviour {
     public Vector2 Grass = new Vector2( 0, 0 );
     public Vector2 Stone = new Vector2( 0, 0 );
 
+    [Header("Enemy generation")]
+
+    public float EnemyDistanceMin = 5f;
+    public GameObject EnemyLevelOne;
+    public GameObject EnemyLevelTwo;
+    public GameObject EnemyLevelThree;
+
+    private List<Vector2> EnemyPositions;
+
     private Mesh m_MeshRef;
     private MeshCollider m_ColRef;
 
@@ -92,6 +101,7 @@ public class MeshCreator : MonoBehaviour {
         Clear();
         ConstructMapMesh();
         GenerateMesh();
+        //InstantiateEnemies();
     }
 
     void BuildMesh (int x, int y, Vector2 texture) {
@@ -227,6 +237,7 @@ public class MeshCreator : MonoBehaviour {
     void MapGeneration () {
 
         Blocks = new byte[MapWidth, MapHeight];
+        EnemyPositions = new List<Vector2>();
 
         int randXStone = 0;//Random.Range(0, MapWidth);
         int randXDirt = 0;
@@ -301,7 +312,6 @@ public class MeshCreator : MonoBehaviour {
 
                 if (GetBlockType( mx, my ) == MAP_TYPE.DIRT) {
                     
-
                     if (GetBlockType( mx, my + 1 ) != MAP_TYPE.EMPTY) {
                         BuildMesh( mx, my, Dirt );
                     } else {
@@ -310,12 +320,75 @@ public class MeshCreator : MonoBehaviour {
 
                     BuildCollider( mx, my );
                 } else if (GetBlockType( mx, my ) == MAP_TYPE.STONE) {
+
                     BuildMesh( mx, my, Stone );
                     BuildCollider( mx, my );
+                } else {
+                    EnemyGeneration( mx, my );
                 }
 
 
             }
         }
+    }
+
+    void EnemyGeneration (int mx, int my) {
+        
+        if (GetBlockType( mx, my ) == MAP_TYPE.EMPTY &&
+            GetBlockType( mx, my - 1 ) != MAP_TYPE.EMPTY && // bottom
+            GetBlockType( mx - 1, my ) == MAP_TYPE.EMPTY &&
+            GetBlockType( mx + 1, my ) == MAP_TYPE.EMPTY
+            ) {
+
+            Vector2 pos = new Vector2( mx, my );
+            
+            foreach (Vector2 p in EnemyPositions) {
+                if (Vector2.Distance( p, pos ) < EnemyDistanceMin) {
+                    return;
+                }
+            }
+
+            EnemyPositions.Add( pos );
+        }
+    }
+
+    public float ProportionEnemyLvlTwo   = 0.25f;
+    public float ProportionEnemyLvlThree = 0.25f;
+
+    void InstantiateEnemies () {
+
+        int count = EnemyPositions.Count;
+        
+        float proportion;
+
+        for (int i = 0; i < count; i++) {
+
+            int rnd = Random.Range( 0, EnemyPositions.Count );
+            proportion = i / count;
+
+            GameObject enemyPrefab;
+
+            if (proportion < ProportionEnemyLvlTwo) {
+                enemyPrefab = EnemyLevelTwo;
+            } else if (proportion >= ProportionEnemyLvlTwo && proportion < ProportionEnemyLvlTwo + ProportionEnemyLvlThree) {
+                enemyPrefab = EnemyLevelThree;
+            } else {
+                enemyPrefab = EnemyLevelOne;
+            }
+
+            InstantiateEnemy( enemyPrefab, EnemyPositions[rnd] );
+            EnemyPositions.RemoveAt( rnd );
+        }
+    }
+
+    void InstantiateEnemy (GameObject prefab, Vector2 pos) {
+        float m_gap = 0.5f;
+
+        pos = new Vector2(
+            Mathf.Round(pos.x) + m_gap,
+            Mathf.Round(pos.y) + m_gap
+        );
+
+        Instantiate( prefab, pos, Quaternion.identity );
     }
 }
