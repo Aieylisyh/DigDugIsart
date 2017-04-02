@@ -107,11 +107,7 @@ public class PlayerAction : CharacterAction {
 
     private void TryTurn(Direction newDirection)
     {
-        //TODO: must turn in a turning point
-        //if digging current block is not finished, continue digging, else turn
-        //Turn(newDirection);
         m_nextDirection = newDirection;
-        
     }
 
     protected override void Turn(Direction newDirection) {
