@@ -50,7 +50,6 @@ public class MeshCreator : MonoBehaviour {
 
     private void Awake()
     {
-        instance = this;
     }
 
     public void RemoveBlock (int x, int y) {
@@ -95,18 +94,6 @@ public class MeshCreator : MonoBehaviour {
         m_Triangles.Clear();
         m_UV.Clear();
         faceCounter = 0;
-
-        // QUICK AND DIRTY
-        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (Enemies != null) {
-            for (int i = Enemies.Length - 1; i >= 0; i--) {
-                if (Enemies[i] != null && Enemies[i].gameObject != null) {
-                    
-                    DestroyImmediate( Enemies[i].gameObject );
-                }
-            }
-        }
-        Enemies = null;
     }
 
     // Use this for initialization
@@ -117,13 +104,15 @@ public class MeshCreator : MonoBehaviour {
         
         MapGeneration();
         UpdateVisualMap();
+
+
+        instance = this;
     }
 
     void UpdateVisualMap () {
         Clear();
         ConstructMapMesh();
         GenerateMesh();
-        InstantiateEnemies();
     }
 
     void BuildMesh (int x, int y, Vector2 texture) {
@@ -354,6 +343,23 @@ public class MeshCreator : MonoBehaviour {
         }
     }
 
+    void EnemyComputePositions () {
+
+        EnemyPositions = new List<Vector2>();
+
+        for (int mx = 0; mx < Blocks.GetLength( 0 ); mx++) {
+
+            for (int my = 0; my < Blocks.GetLength( 1 ); my++) {
+
+                if (GetBlockType( mx, my ) == MAP_TYPE.EMPTY) {
+                    EnemyGeneration( mx, my );
+                }
+
+
+            }
+        }
+    }
+
     void EnemyGeneration (int mx, int my) {
 
         // QUICK AND DIRTY
@@ -392,7 +398,25 @@ public class MeshCreator : MonoBehaviour {
         }
     }
 
-    void InstantiateEnemies () {
+    void ClearEnemies () {
+        // QUICK AND DIRTY
+        Enemies = GameObject.FindGameObjectsWithTag( "Enemy" );
+        if (Enemies != null) {
+            for (int i = Enemies.Length - 1; i >= 0; i--) {
+                if (Enemies[i] != null && Enemies[i].gameObject != null) {
+
+                    DestroyImmediate( Enemies[i].gameObject );
+                }
+            }
+        }
+        Enemies = null;
+    }
+
+    public void InstantiateEnemies () {
+
+        ClearEnemies();
+        EnemyComputePositions();
+
 
         int count = EnemyPositions.Count;
         

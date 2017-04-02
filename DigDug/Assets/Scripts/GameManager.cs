@@ -26,6 +26,18 @@ public class GameManager : MonoBehaviour {
     void Start () {
         UIManager.instance.OpenHud();
         Score = 0;
+
+        StartCoroutine( StartEnemies() );
+    }
+
+    IEnumerator StartEnemies () {
+        while (MeshCreator.instance == null) {
+            yield return null;
+        }
+        
+        MeshCreator.instance.InstantiateEnemies();
+
+        yield break;
     }
 
 	public void Win () {
