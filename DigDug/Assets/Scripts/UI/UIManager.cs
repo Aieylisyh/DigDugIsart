@@ -9,8 +9,10 @@ public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
     public string GameSceneName = "Game";
-    public Canvas ScoreMenu;
+    public string MenuSceneName = "Menu";
     public Canvas TitleCardMenu;
+    public Canvas ScoreMenu;
+    public Canvas EndGameMenu;
 
     Canvas m_opened;
 
@@ -23,17 +25,29 @@ public class UIManager : MonoBehaviour {
         SceneManager.LoadScene( GameSceneName );
     }
 
+    public void StartMenu () {
+        SceneManager.LoadScene( MenuSceneName );
+    }
+
     public void OpenScores () {
-        CloseMenu();
-        m_opened = Instantiate( ScoreMenu );
+        Open( ScoreMenu );
     }
 
     public void OpenTitleCard () {
-        CloseMenu();
-        m_opened = Instantiate( TitleCardMenu );
+        Open( TitleCardMenu );
+    }
+
+    public void OpenEndGame () {
+        Open( EndGameMenu );
     }
 
     public void CloseMenu () {
         if (m_opened != null && m_opened.gameObject != null) Destroy( m_opened.gameObject );
+    }
+
+    void Open (Canvas menu) {
+        CloseMenu();
+        m_opened = Instantiate( menu );
+        if (!m_opened.enabled) m_opened.enabled = true;
     }
 }
