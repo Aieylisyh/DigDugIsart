@@ -10,8 +10,6 @@ public class PlayerAction : CharacterAction {
     [SerializeField]
     [Range(0.1f,1)]
     private float attackInterval = 0.3f;
-    //[SerializeField]//enable this for debugging
-    private bool isDigging = false;
     [SerializeField]
     [Range(0.2f, 1.6f)]
     private float attackRange = 0.5f;
@@ -27,11 +25,14 @@ public class PlayerAction : CharacterAction {
         if (instance)
             Debug.LogError("multi instance if player found!");
         instance = this;
+        TryTurn(Direction.Left);
     }
 
     protected override void ReceiveControl()
     {
         base.ReceiveControl();
+        if (myPlayerState == PlayerState.Die || myPlayerState == PlayerState.ScenarioLock)
+            return;
         float hInput = InputManager.instance.horizontalAxis;
         float vInput = InputManager.instance.verticalAxis;
         bool attackInput = InputManager.instance.attackIsOn;
@@ -93,22 +94,7 @@ public class PlayerAction : CharacterAction {
     protected override Vector3 GetCurrentDirectionVector()
     {
         Vector3 tempDirection = Vector3.left;
-        switch (m_direction)
-        {
-            case Direction.Down:
-                tempDirection = Vector3.down;
-                break;
-            case Direction.Up:
-                tempDirection = Vector3.up;
-                break;
-            case Direction.Right:
-                tempDirection = Vector3.right;
-                break;
-            case Direction.Left:
-                tempDirection = Vector3.left;
-                break;
-        }
-        return tempDirection;
+        return DirectionEnumToVector3(m_direction);;
     }
 
     protected override void Turn(Direction newDirection) {
@@ -159,6 +145,7 @@ public class PlayerAction : CharacterAction {
                 break;
             case AnimationState.Die:
                 myAnimator.SetTrigger("die");
+                myAnimator.speed = 0.3f;
                 break;
             case AnimationState.GoDownHeadingLeft:
                 SetAllMoveAnimationParametersFalse();
@@ -198,5 +185,17 @@ public class PlayerAction : CharacterAction {
         myAnimator.SetBool("isWalkupheadingright", false);
         myAnimator.SetBool("isWalkleft", false);
         myAnimator.SetBool("isWalkright", false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy" && myPlayerState!= PlayerState.Die)
+        {
+            //print("hit enemy!");
+            myPlayerState = PlayerState.Die;
+            isMoving = false;
+            SwitchAnimState(AnimationState.Die);
+            GameManager.instance.GameOver();
+        }
     }
 }

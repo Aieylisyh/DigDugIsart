@@ -159,4 +159,45 @@ public class CharacterAction : MonoBehaviour
             return Direction.Other;
         return (Direction)(4 - (byte)dir);
     }
+    protected Direction GetTurn90DegreeDirection(Direction dir)
+    {
+        switch (dir)
+        {
+            case Direction.Down:
+                return Direction.Right;
+            case Direction.Right:
+                return Direction.Up;
+            case Direction.Up:
+                return Direction.Left;
+            case Direction.Left:
+                return Direction.Down;
+            case Direction.Other:
+                return Direction.Other;
+        }
+        return Direction.Other;
+    }
+
+    protected Vector3 DirectionEnumToVector3(Direction dir)
+    {
+        Vector3 tempDirection = Vector3.zero;
+        switch (dir)
+        {
+            case Direction.Down:
+                tempDirection = Vector3.down;
+                break;
+            case Direction.Up:
+                tempDirection = Vector3.up;
+                break;
+            case Direction.Right:
+                tempDirection = Vector3.right;
+                break;
+            case Direction.Left:
+                tempDirection = Vector3.left;
+                break;
+            case Direction.Other:
+                tempDirection = Vector3.zero;
+                break;
+        }
+        return tempDirection;
+    }
 }
