@@ -25,11 +25,14 @@ public class PlayerAction : CharacterAction {
         if (instance)
             Debug.LogError("multi instance if player found!");
         instance = this;
+        TryTurn(Direction.Left);
     }
 
     protected override void ReceiveControl()
     {
         base.ReceiveControl();
+        if (myPlayerState == PlayerState.Die || myPlayerState == PlayerState.ScenarioLock)
+            return;
         float hInput = InputManager.instance.horizontalAxis;
         float vInput = InputManager.instance.verticalAxis;
         bool attackInput = InputManager.instance.attackIsOn;
@@ -142,6 +145,7 @@ public class PlayerAction : CharacterAction {
                 break;
             case AnimationState.Die:
                 myAnimator.SetTrigger("die");
+                myAnimator.speed = 0.3f;
                 break;
             case AnimationState.GoDownHeadingLeft:
                 SetAllMoveAnimationParametersFalse();
@@ -181,5 +185,17 @@ public class PlayerAction : CharacterAction {
         myAnimator.SetBool("isWalkupheadingright", false);
         myAnimator.SetBool("isWalkleft", false);
         myAnimator.SetBool("isWalkright", false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy" && myPlayerState!= PlayerState.Die)
+        {
+            //print("hit enemy!");
+            myPlayerState = PlayerState.Die;
+            isMoving = false;
+            SwitchAnimState(AnimationState.Die);
+            GameManager.instance.GameOver();
+        }
     }
 }

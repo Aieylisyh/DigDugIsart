@@ -111,13 +111,12 @@ public class DragonAction : EnemyAction
                 break;
             case EnemyState.Idle:
                 break;
+            case EnemyState.BeingInflated:
+                //myAnimator.SetTrigger("endInflat");
+                myAnimator.Play("dragon_walk");
+                break;
         }
         myAnimator.speed = 1;
-    }
-
-    private void OnDestroy()
-    {
-        CancelInvoke();
     }
 
     protected override void EnterState(EnemyState pState)
@@ -141,7 +140,7 @@ public class DragonAction : EnemyAction
             case EnemyState.StealthMoving:
                 myAnimator.SetTrigger("startStealth");
                 myAnimator.speed = 0.5f;
-                print("startStealth");
+                //print("startStealth");
                 isMoving = true;
                 targetPosition_StealthMoving = PlayerAction.instance.transform.position;
                 float time = GetDistanceToPlayer() / m_moveSpeed;
@@ -149,6 +148,11 @@ public class DragonAction : EnemyAction
                 break;
             case EnemyState.Die:
                 myAnimator.SetTrigger("die");
+                myAnimator.speed = 0;
+                isMoving = false;
+                break;
+            case EnemyState.BeingInflated:
+                myAnimator.SetTrigger("startInflat");
                 myAnimator.speed = 0;
                 isMoving = false;
                 break;
@@ -167,7 +171,7 @@ public class DragonAction : EnemyAction
 
     private void StopStealth()
     {
-        print("StopStealth");
+        //print("StopStealth");
         SetState(EnemyState.Idle);
     }
 }

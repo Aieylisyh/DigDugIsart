@@ -20,12 +20,23 @@ public class EnemyAction : CharacterAction
     protected GameObject sprite;
     protected Vector3 targetPosition_StealthMoving;
     private Vector2 lastPosition;
+
+    [Header("inflate")]
+    [SerializeField]
+    private float lifeRegTime = 0.6f;
+    private float lifeRegTimeCount = 0;
+    [SerializeField]
+    private int life = 4;
+    private int lifeCount;
+
     protected override void Start()
     {
         base.Start();
         Turn(Direction.Right);
         AIThinkTimeRest = 0;
         lastPosition = GetNextMoveDirectionGrillPosition();
+        lifeCount = life;
+        lifeRegTimeCount = lifeRegTime;
     }
 
     protected float GetDistanceToPlayer()
@@ -38,6 +49,23 @@ public class EnemyAction : CharacterAction
     protected override void ReceiveControl()
     {
         base.ReceiveControl();
+        if (lifeCount < life)
+        {
+            lifeRegTimeCount -= Time.fixedDeltaTime;
+            if (lifeRegTimeCount < 0)
+            {
+                lifeCount++;
+                lifeRegTimeCount = lifeRegTime;
+                if (lifeCount < life)
+                {
+                    myAnimator.Play("dragon_inflated", 0, 1 - ((float)(lifeCount + 0.5f)) / life);
+                }else
+                {
+                    SetState(EnemyState.Idle);
+                }
+            }
+                
+        }
         AIThinkTimeRest -= Time.fixedDeltaTime;
         Vector2 newPosition = GetNextMoveDirectionGrillPosition();
         if (AIThinkTimeRest < 0)
@@ -51,6 +79,11 @@ public class EnemyAction : CharacterAction
             MakeChangePositionDecision();
         }
         lastPosition = newPosition;
+    }
+
+    protected void OnDestroy()
+    {
+        CancelInvoke();
     }
 
     protected virtual void MakeDecision()
@@ -211,5 +244,29 @@ public class EnemyAction : CharacterAction
     {
         SetState(EnemyState.Die);
         Destroy(gameObject, 1);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "PlayerAttack")
+        {
+            OnInflated();
+        }
+    }
+
+    protected virtual void OnInflated()
+    {
+        lifeCount--;
+        CancelInvoke();
+        if (lifeCount < 0)
+        {
+            TryKillSelf();
+        }
+        else
+        {
+            SetState(EnemyState.BeingInflated);
+            lifeRegTimeCount = lifeRegTime;
+            myAnimator.Play("dragon_inflated", 0, 1 - ((float)(lifeCount+0.5f)) / life);
+        }
     }
 }
