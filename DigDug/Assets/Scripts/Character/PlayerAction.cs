@@ -105,11 +105,6 @@ public class PlayerAction : CharacterAction {
         return tempDirection;
     }
 
-    private void TryTurn(Direction newDirection)
-    {
-        m_nextDirection = newDirection;
-    }
-
     protected override void Turn(Direction newDirection) {
         base.Turn(newDirection);
         print("TURN");

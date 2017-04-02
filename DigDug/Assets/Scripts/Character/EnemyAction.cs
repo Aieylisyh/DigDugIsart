@@ -89,7 +89,7 @@ public class EnemyAction : CharacterAction
             tempDirection = (targetPosition_StealthMoving - transform.position).normalized;
         }else
         {
-            switch (myDirection)
+            switch (m_direction)
             {
                 case Direction.Down:
                     tempDirection = Vector3.down;
@@ -152,6 +152,6 @@ public class EnemyAction : CharacterAction
                 myHorizontalFacing = HorizontalFacing.Right;
                 break;
         }
-        myDirection = newDirection;
+        m_direction = newDirection;
     }
 }
