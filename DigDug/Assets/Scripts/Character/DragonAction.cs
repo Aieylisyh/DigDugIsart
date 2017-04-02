@@ -15,7 +15,18 @@ public class DragonAction : EnemyAction
 
     protected override void MakeDecision()
     {
-        
+        switch (myEnemyState)
+        {
+            case EnemyState.Idle:
+                SetState(EnemyState.Moving);
+                break;
+            case EnemyState.Moving:
+                if (!CheckDirtValidToGoTo(m_direction)){
+                    TryTurn(GetInversedDirection(m_direction));
+                }
+                SetState(EnemyState.Moving);
+                break;
+        }
     }
 
     protected override void Move()

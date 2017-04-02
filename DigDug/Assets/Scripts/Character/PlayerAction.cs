@@ -19,9 +19,14 @@ public class PlayerAction : CharacterAction {
     [SerializeField]
     private GameObject prefab_attack;
 
+    public static PlayerAction instance;
+
     protected override void Start()
     {
         base.Start();
+        if (instance)
+            Debug.LogError("multi instance if player found!");
+        instance = this;
     }
 
     protected override void ReceiveControl()

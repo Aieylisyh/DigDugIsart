@@ -32,8 +32,9 @@ public class EnemyAction : CharacterAction
 
     protected float GetDistanceToPlayer()
     {
-        //TODO
-        return 10;
+        Vector3 distance = PlayerAction.instance.transform.position - this.transform.position;
+        distance.z = 0;
+        return distance.magnitude;
     }
 
     protected override void ReceiveControl()
