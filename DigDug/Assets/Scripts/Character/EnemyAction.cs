@@ -274,9 +274,12 @@ public class EnemyAction : CharacterAction
 
     protected virtual void TryKillSelf()
     {
+        if (myEnemyState == EnemyState.Die)
+            return;
         SetState(EnemyState.Die);
         Destroy(gameObject, 1);
         GameManager.instance.Score += killScore;
+        GameManager.instance.CheckWin();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

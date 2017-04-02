@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour {
 	public void Win () {
         EndGame( true );
         Invoke("FeedBackWin", 2);
+        PlayerAction.instance.OnWin();
     }
 
     public void GameOver () {
@@ -41,6 +42,14 @@ public class GameManager : MonoBehaviour {
     void EndGame (bool hasWin) {
         UIManager.instance.CloseHud();
         LastScore = Score;
+    }
+
+    public void CheckWin()
+    {
+        if (true)
+        {
+            Win();
+        }
     }
 
     private void FeedBackWin()
