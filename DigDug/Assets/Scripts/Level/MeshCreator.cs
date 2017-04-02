@@ -355,7 +355,10 @@ public class MeshCreator : MonoBehaviour {
     }
 
     void EnemyGeneration (int mx, int my) {
-        
+
+        // QUICK AND DIRTY
+
+
         if (GetBlockType( mx, my ) == MAP_TYPE.EMPTY &&
             GetBlockType( mx, my - 1 ) != MAP_TYPE.EMPTY && // bottom
             GetBlockType( mx - 1, my ) == MAP_TYPE.EMPTY &&
@@ -371,6 +374,21 @@ public class MeshCreator : MonoBehaviour {
             }
 
             EnemyPositions.Add( pos );
+        } else if (GetBlockType( mx, my ) == MAP_TYPE.EMPTY && // QUICK AND DIRTY
+                    GetBlockType( mx, my - 1 ) == MAP_TYPE.EMPTY &&
+                    GetBlockType( mx - 1, my ) == MAP_TYPE.EMPTY &&
+                    GetBlockType( mx + 1, my ) == MAP_TYPE.EMPTY &&
+                    Random.value < 0.01f
+            ) {
+            //InstantiateEnemy( ,  new Vector2( mx, my ) );
+
+        } else if (GetBlockType( mx, my ) != MAP_TYPE.EMPTY && // QUICK AND DIRTY
+                    GetBlockType( mx, my - 1 ) != MAP_TYPE.EMPTY &&
+                    GetBlockType( mx - 1, my ) != MAP_TYPE.EMPTY &&
+                    GetBlockType( mx + 1, my ) != MAP_TYPE.EMPTY &&
+                    Random.value < 0.001f
+            ) {
+            //InstantiateEnemy( , new Vector2( mx, my ) );
         }
     }
 
