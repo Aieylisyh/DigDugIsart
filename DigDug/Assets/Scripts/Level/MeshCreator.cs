@@ -34,6 +34,13 @@ public class MeshCreator : MonoBehaviour {
     
     private byte[,] Blocks;
 
+    public static MeshCreator instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void RemoveBlock (int x, int y) {
         if (GetBlockType(x, y) != MAP_TYPE.EMPTY) {
             Blocks[x, y] = (byte)MAP_TYPE.EMPTY;

@@ -191,11 +191,19 @@ public class PlayerAction : CharacterAction {
     {
         if(collision.gameObject.tag == "Enemy" && myPlayerState!= PlayerState.Die)
         {
+            if (collision.gameObject.GetComponent<EnemyAction>() && collision.gameObject.GetComponent<EnemyAction>().isNotHarmful)
+                return;
             //print("hit enemy!");
             myPlayerState = PlayerState.Die;
             isMoving = false;
             SwitchAnimState(AnimationState.Die);
+            CancelInvoke();
             GameManager.instance.GameOver();
+        }
+        if (collision.gameObject.GetComponent<Collectible>())
+        {
+            Destroy(collision.gameObject);
+            GameManager.instance.Score += collision.gameObject.GetComponent<Collectible>().score;
         }
     }
 }
