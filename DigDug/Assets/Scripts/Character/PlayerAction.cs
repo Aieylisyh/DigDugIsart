@@ -206,4 +206,11 @@ public class PlayerAction : CharacterAction {
             GameManager.instance.Score += collision.gameObject.GetComponent<Collectible>().score;
         }
     }
+
+    public void OnWin()
+    {
+        myPlayerState = PlayerState.ScenarioLock;
+        isMoving = false;
+        SetAllMoveAnimationParametersFalse();
+    }
 }
