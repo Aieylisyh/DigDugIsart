@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyAction : CharacterAction
 {
-
+    [SerializeField]
+    protected MeshCreator m_world;
     protected enum EnemyState { Idle, Die, StealthMoving, Attacking, Moving, BeingInflated };
+    [SerializeField]//debug only
     protected EnemyState myEnemyState = EnemyState.Idle;
     protected enum EnemyType { Other, Dragon, Ninja };//to be extended
     protected EnemyType myEnemyType = EnemyType.Other;
@@ -32,13 +34,15 @@ public class EnemyAction : CharacterAction
 
     protected float GetDistanceToPlayer()
     {
-        //TODO
-        return 10;
+        Vector3 distance = PlayerAction.instance.transform.position - this.transform.position;
+        distance.z = 0;
+        return distance.magnitude;
     }
 
     protected override void ReceiveControl()
     {
         base.ReceiveControl();
+        AIThinkTimeRest -= Time.fixedDeltaTime;
         if (AIThinkTimeRest < 0)
         {
             //make new decision
@@ -60,6 +64,7 @@ public class EnemyAction : CharacterAction
         {
             ExitState(myEnemyState);
             EnterState(newState);
+            myEnemyState = newState;
         }
     }
 
@@ -115,16 +120,16 @@ public class EnemyAction : CharacterAction
         switch (newDirection)
         {
             case Direction.Down:
-                //validToGo = CheckDirtAt();
+                validToGo = m_world.GetBlockType(Mathf.RoundToInt(transform.position.x - m_gap), Mathf.RoundToInt(transform.position.y - m_gap) - 1) == MeshCreator.MAP_TYPE.EMPTY;
                 break;
             case Direction.Up:
-                //validToGo = CheckDirtAt();
+                validToGo = m_world.GetBlockType(Mathf.RoundToInt(transform.position.x - m_gap), Mathf.RoundToInt(transform.position.y - m_gap) + 1) == MeshCreator.MAP_TYPE.EMPTY;
                 break;
             case Direction.Left:
-                //validToGo = CheckDirtAt();
+                validToGo = m_world.GetBlockType(Mathf.RoundToInt(transform.position.x - m_gap) - 1, Mathf.RoundToInt(transform.position.y - m_gap)) == MeshCreator.MAP_TYPE.EMPTY;
                 break;
             case Direction.Right:
-                //validToGo = CheckDirtAt();
+                validToGo = m_world.GetBlockType(Mathf.RoundToInt(transform.position.x - m_gap) + 1, Mathf.RoundToInt(transform.position.y - m_gap)) == MeshCreator.MAP_TYPE.EMPTY;
                 break;
         }
         return validToGo;

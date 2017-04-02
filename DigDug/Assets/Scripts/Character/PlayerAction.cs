@@ -19,9 +19,14 @@ public class PlayerAction : CharacterAction {
     [SerializeField]
     private GameObject prefab_attack;
 
+    public static PlayerAction instance;
+
     protected override void Start()
     {
         base.Start();
+        if (instance)
+            Debug.LogError("multi instance if player found!");
+        instance = this;
     }
 
     protected override void ReceiveControl()
@@ -56,6 +61,8 @@ public class PlayerAction : CharacterAction {
             isMoving = false;
             myAnimator.speed = 0;
         }
+        isDigging = Pick.instance.isDigging;
+        myAnimator.SetBool("isDig", isDigging);
     }
 
     private void Attack()
@@ -156,37 +163,30 @@ public class PlayerAction : CharacterAction {
                 break;
             case AnimationState.GoDownHeadingLeft:
                 SetAllMoveAnimationParametersFalse();
-                myAnimator.SetBool("isDig", isDigging);
                 myAnimator.SetBool("isWalkdownheadingleft", true);
                 break;
             case AnimationState.GoDownHeadingRight:
                 SetAllMoveAnimationParametersFalse();
-                myAnimator.SetBool("isDig", isDigging);
                 myAnimator.SetBool("isWalkdownheadingright", true);
                 break;
             case AnimationState.GoLeft:
                 SetAllMoveAnimationParametersFalse();
-                myAnimator.SetBool("isDig", isDigging);
                 myAnimator.SetBool("isWalkleft", true);
                 break;
             case AnimationState.GoRight:
                 SetAllMoveAnimationParametersFalse();
-                myAnimator.SetBool("isDig", isDigging);
                 myAnimator.SetBool("isWalkright", true);
                 break;
             case AnimationState.GoUpHeadingLeft:
                 SetAllMoveAnimationParametersFalse();
-                myAnimator.SetBool("isDig", isDigging);
                 myAnimator.SetBool("isWalkupheadingleft", true);
                 break;
             case AnimationState.GoUpHeadingRight:
                 SetAllMoveAnimationParametersFalse();
-                myAnimator.SetBool("isDig", isDigging);
                 myAnimator.SetBool("isWalkupheadingright", true);
                 break;
             case AnimationState.Idle:
                 SetAllMoveAnimationParametersFalse();
-                myAnimator.SetBool("isDig", false);
                 break;
         }
     }

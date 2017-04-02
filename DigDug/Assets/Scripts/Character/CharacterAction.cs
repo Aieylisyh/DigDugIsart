@@ -18,12 +18,12 @@ public class CharacterAction : MonoBehaviour
     protected bool isMoving = false;
 
     [SerializeField]
-    protected float m_truningTolerance = 0.1f;
+    protected float m_turningTolerance = 0.1f;
     protected float m_gap;
 
     protected virtual void Awake () {
         m_moveSpeed *= transform.localScale.x;
-        m_gap = transform.localPosition.x;
+        m_gap = transform.localPosition.x%1;
     }
 
     protected virtual void Start()
@@ -99,7 +99,7 @@ public class CharacterAction : MonoBehaviour
     private bool OnGrid(float axe) {
         axe -= m_gap;
         float dif = Mathf.Abs( axe - Mathf.Round(axe) );
-        return dif < m_truningTolerance;
+        return dif < m_turningTolerance;
     }
 
     protected virtual void SwitchAnimState(AnimationState newAnimationState)
@@ -151,5 +151,12 @@ public class CharacterAction : MonoBehaviour
                 break;
         }
         return tempAnimationState;
+    }
+
+    protected Direction GetInversedDirection(Direction dir)
+    {
+        if (dir == Direction.Other)
+            return Direction.Other;
+        return (Direction)(4 - (byte)dir);
     }
 }
