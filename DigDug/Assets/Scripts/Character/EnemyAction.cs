@@ -19,17 +19,19 @@ public class EnemyAction : CharacterAction
     private float attackEndTime = 1.0f;
 
     [SerializeField]
-    [Range(0.3f, 3f)]
-    private float AIThinkInterval = 1f;//how long time the AI make a decision. It should also be the time to walk one block!
+    [Range(0.5f, 3f)]
+    private float AIThinkInterval = 1f;
     private float AIThinkTimeRest;
     [SerializeField]
     protected GameObject sprite;
     private Vector3 targetPosition_StealthMoving;
+    private Vector2 lastPosition;
     protected override void Start()
     {
         base.Start();
         Turn(Direction.Right);
         AIThinkTimeRest = 0;
+        lastPosition = GetNextMoveDirectionGrillPosition();
     }
 
     protected float GetDistanceToPlayer()
@@ -43,10 +45,15 @@ public class EnemyAction : CharacterAction
     {
         base.ReceiveControl();
         AIThinkTimeRest -= Time.fixedDeltaTime;
+        Vector2 newPosition = GetNextMoveDirectionGrillPosition();
         if (AIThinkTimeRest < 0)
         {
             //make new decision
             AIThinkTimeRest = AIThinkInterval;
+            MakeDecision();
+        }else if (myEnemyState!= EnemyState.StealthMoving && newPosition!= lastPosition)
+        {
+            lastPosition = newPosition;
             MakeDecision();
         }
     }
@@ -70,19 +77,19 @@ public class EnemyAction : CharacterAction
 
     protected virtual void ContinueState(EnemyState pState)
     {
-        print("ContinueState " + pState);
+        //print("ContinueState " + pState);
         //TODO override
     }
 
     protected virtual void ExitState(EnemyState pState)
     {
-        print("ExitState " + pState);
+        //print("ExitState " + pState);
         //TODO override
     }
 
     protected virtual void EnterState(EnemyState pState)
     {
-        print("EnterState " + pState);
+        //print("EnterState " + pState);
         //TODO override
     }
 
@@ -108,31 +115,24 @@ public class EnemyAction : CharacterAction
                 case Direction.Left:
                     tempDirection = Vector3.left;
                     break;
+                case Direction.Other:
+                    tempDirection = Vector3.zero;
+                    break;
             }
         }
         return tempDirection;
     }
 
-    protected bool CheckDirtValidToGoTo(Direction newDirection)
+    protected bool CheckDirtValid(Vector2 offset)
     {
-        //if is the dirt diged, enemy can go there, else enemy can not go or should stealth go
-        bool validToGo = true;
-        switch (newDirection)
-        {
-            case Direction.Down:
-                validToGo = m_world.GetBlockType(Mathf.RoundToInt(transform.position.x - m_gap), Mathf.RoundToInt(transform.position.y - m_gap) - 1) == MeshCreator.MAP_TYPE.EMPTY;
-                break;
-            case Direction.Up:
-                validToGo = m_world.GetBlockType(Mathf.RoundToInt(transform.position.x - m_gap), Mathf.RoundToInt(transform.position.y - m_gap) + 1) == MeshCreator.MAP_TYPE.EMPTY;
-                break;
-            case Direction.Left:
-                validToGo = m_world.GetBlockType(Mathf.RoundToInt(transform.position.x - m_gap) - 1, Mathf.RoundToInt(transform.position.y - m_gap)) == MeshCreator.MAP_TYPE.EMPTY;
-                break;
-            case Direction.Right:
-                validToGo = m_world.GetBlockType(Mathf.RoundToInt(transform.position.x - m_gap) + 1, Mathf.RoundToInt(transform.position.y - m_gap)) == MeshCreator.MAP_TYPE.EMPTY;
-                break;
-        }
-        return validToGo;
+        return m_world.GetBlockType(Mathf.RoundToInt(transform.position.x - m_gap + offset.x), Mathf.RoundToInt(transform.position.y - m_gap + offset.y)) == MeshCreator.MAP_TYPE.EMPTY;
+    }
+
+    protected Vector2 GetNextMoveDirectionGrillPosition()
+    {
+        Vector2 offset = GetCurrentDirectionVector() * 0.5f;
+        Vector2 position = new Vector2(transform.position.x - m_gap, transform.position.y - m_gap)+ offset;
+        return new Vector2(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y));
     }
 
     protected override void Turn(Direction newDirection)

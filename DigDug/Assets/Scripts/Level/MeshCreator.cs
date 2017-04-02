@@ -53,6 +53,11 @@ public class MeshCreator : MonoBehaviour {
         }
 
         if (changed) {
+            for (int i = 0; i < positions.Length; i++)
+            {
+                print((positions[i].x) + "  " + positions[i].y);
+            }
+            
             UpdateVisualMap();
         }
         return changed;

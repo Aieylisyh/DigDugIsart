@@ -10,7 +10,7 @@ public class PlayerAction : CharacterAction {
     [SerializeField]
     [Range(0.1f,1)]
     private float attackInterval = 0.3f;
-    [SerializeField]//enable this for debugging
+    //[SerializeField]//enable this for debugging
     private bool isDigging = false;
     [SerializeField]
     [Range(0.2f, 1.6f)]
@@ -61,8 +61,7 @@ public class PlayerAction : CharacterAction {
             isMoving = false;
             myAnimator.speed = 0;
         }
-        isDigging = Pick.instance.isDigging;
-        myAnimator.SetBool("isDig", isDigging);
+        myAnimator.SetBool("isDig", Pick.instance.isDigging);
     }
 
     private void Attack()

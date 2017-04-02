@@ -21,7 +21,7 @@ public class DragonAction : EnemyAction
                 SetState(EnemyState.Moving);
                 break;
             case EnemyState.Moving:
-                if (!CheckDirtValidToGoTo(m_direction)){
+                if (!CheckDirtValid(GetCurrentDirectionVector()*0.5f)){
                     print("!");
                     TryTurn(GetInversedDirection(m_direction));
                 }
