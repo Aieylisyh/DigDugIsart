@@ -41,7 +41,7 @@ public class MeshCreator : MonoBehaviour {
         }
     }
 
-    public void RemoveBlock (Vector2[] positions) {
+    public bool RemoveBlock (Vector2[] positions) {
 
         bool changed = false;
 
@@ -55,6 +55,7 @@ public class MeshCreator : MonoBehaviour {
         if (changed) {
             UpdateVisualMap();
         }
+        return changed;
     }
 
     public MAP_TYPE GetBlockType (int x, int y) {
