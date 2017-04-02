@@ -23,7 +23,7 @@ public class CharacterAction : MonoBehaviour
 
     protected virtual void Awake () {
         m_moveSpeed *= transform.localScale.x;
-        m_gap = transform.localPosition.x;
+        m_gap = transform.localPosition.x%1;
     }
 
     protected virtual void Start()
