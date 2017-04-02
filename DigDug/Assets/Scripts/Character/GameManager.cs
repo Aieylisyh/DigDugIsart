@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public void Win () {
+        EndGame( true );
+    }
+
+    public void GameOver () {
+        EndGame( false );
+    }
+
+    void EndGame (bool hasWin) {
+        UIManager.instance.OpenEndGame( hasWin );
+    }
 }
