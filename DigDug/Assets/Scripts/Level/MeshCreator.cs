@@ -25,8 +25,11 @@ public class MeshCreator : MonoBehaviour {
     public GameObject EnemyLevelOne;
     public GameObject EnemyLevelTwo;
     public GameObject EnemyLevelThree;
+    public float ProportionEnemyLvlTwo   = 0.25f;
+    public float ProportionEnemyLvlThree = 0.25f;
 
     private List<Vector2> EnemyPositions;
+    private GameObject[] Enemies;
 
     private Mesh m_MeshRef;
     private MeshCollider m_ColRef;
@@ -92,6 +95,18 @@ public class MeshCreator : MonoBehaviour {
         m_Triangles.Clear();
         m_UV.Clear();
         faceCounter = 0;
+
+        // QUICK AND DIRTY
+        Enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (Enemies != null) {
+            for (int i = Enemies.Length - 1; i >= 0; i--) {
+                if (Enemies[i] != null && Enemies[i].gameObject != null) {
+                    
+                    DestroyImmediate( Enemies[i].gameObject );
+                }
+            }
+        }
+        Enemies = null;
     }
 
     // Use this for initialization
@@ -108,7 +123,7 @@ public class MeshCreator : MonoBehaviour {
         Clear();
         ConstructMapMesh();
         GenerateMesh();
-        //InstantiateEnemies();
+        InstantiateEnemies();
     }
 
     void BuildMesh (int x, int y, Vector2 texture) {
@@ -359,25 +374,22 @@ public class MeshCreator : MonoBehaviour {
         }
     }
 
-    public float ProportionEnemyLvlTwo   = 0.25f;
-    public float ProportionEnemyLvlThree = 0.25f;
-
     void InstantiateEnemies () {
 
         int count = EnemyPositions.Count;
         
-        float proportion;
+        float p2 = count * ProportionEnemyLvlTwo;
+        float p3 = count * ProportionEnemyLvlThree;
 
         for (int i = 0; i < count; i++) {
 
             int rnd = Random.Range( 0, EnemyPositions.Count );
-            proportion = i / count;
 
             GameObject enemyPrefab;
 
-            if (proportion < ProportionEnemyLvlTwo) {
+            if (i < p2) {
                 enemyPrefab = EnemyLevelTwo;
-            } else if (proportion >= ProportionEnemyLvlTwo && proportion < ProportionEnemyLvlTwo + ProportionEnemyLvlThree) {
+            } else if (i >= p2 && i < p2 + p3) {
                 enemyPrefab = EnemyLevelThree;
             } else {
                 enemyPrefab = EnemyLevelOne;
