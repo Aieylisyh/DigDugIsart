@@ -6,7 +6,7 @@ public class CharacterAction : MonoBehaviour
 {
     protected Animator myAnimator;
 
-    public enum Direction { Up = 1, Down = 3, Right = 0, Left = 4 };
+    public enum Direction { Up = 1, Down = 3, Right = 0, Left = 4, Other = 5 };
     protected Direction m_direction = Direction.Left;
     protected Direction m_nextDirection;
     protected enum HorizontalFacing { Right, Left };
@@ -34,7 +34,7 @@ public class CharacterAction : MonoBehaviour
 
     protected virtual void InitAnim()
     {
-        myAnimator = GetComponent<Animator>();
+        myAnimator = GetComponentInChildren<Animator>();
         if (!myAnimator)
             Debug.LogError("myAnimator is not set!");
     }
@@ -51,6 +51,11 @@ public class CharacterAction : MonoBehaviour
     {
         Vector3 speed = m_moveSpeed * Time.fixedDeltaTime * GetCurrentDirectionVector();
         transform.position = transform.position + speed;
+    }
+
+    protected virtual void TryTurn(Direction newDirection)
+    {
+        m_nextDirection = newDirection;
     }
 
     protected virtual void Turn(Direction newDirection)
