@@ -10,7 +10,7 @@ public class MeshCreatorEditor : Editor {
 
     List<Texture2D> m_textures = new List<Texture2D>();
 
-    bool foldOut = false;
+    //bool foldOut = false;
 
     public override void OnInspectorGUI () {
         

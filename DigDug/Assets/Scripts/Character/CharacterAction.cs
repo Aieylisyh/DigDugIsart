@@ -15,7 +15,11 @@ public class CharacterAction : MonoBehaviour
     [SerializeField]
     protected float moveSpeed = 3;
     protected bool isMoving = false;
-    // Use this for initialization
+
+    protected virtual void Awake () {
+        moveSpeed *= transform.localScale.x;
+    }
+
     protected virtual void Start()
     {
         InitAnim();
