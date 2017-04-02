@@ -22,6 +22,9 @@ public class SaveManager {
     static List<Score> m_save;
 
 	public static void SaveScore (string playerName, uint score) {
+        if (m_save == null) {
+            LoadSave();
+        }
         m_save.Add( new Score(playerName, score) );
         WriteSave();
     }
