@@ -46,7 +46,9 @@ public class GameManager : MonoBehaviour {
 
     public void CheckWin()
     {
-        if (true)
+        EnemyAction[] enemies = (EnemyAction[])GameObject.FindObjectsOfType(typeof(EnemyAction));
+        print("enemies:"+ enemies.Length);
+        if (enemies.Length==0)
         {
             Win();
         }
