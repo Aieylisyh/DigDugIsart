@@ -11,20 +11,14 @@ public class EnemyAction : CharacterAction
     protected EnemyState myEnemyState = EnemyState.Idle;
     protected enum EnemyType { Other, Dragon, Ninja };//to be extended
     protected EnemyType myEnemyType = EnemyType.Other;
-    [SerializeField]
-    [Range(0.4f, 2)]
-    private float attackPrepareTime = 1.0f;
-    [SerializeField]
-    [Range(0.4f, 2)]
-    private float attackEndTime = 1.0f;
 
     [SerializeField]
     [Range(0.5f, 3f)]
-    private float AIThinkInterval = 1f;
-    private float AIThinkTimeRest;
+    protected float AIThinkInterval = 1f;
+    protected float AIThinkTimeRest;
     [SerializeField]
     protected GameObject sprite;
-    private Vector3 targetPosition_StealthMoving;
+    protected Vector3 targetPosition_StealthMoving;
     private Vector2 lastPosition;
     protected override void Start()
     {
@@ -51,11 +45,12 @@ public class EnemyAction : CharacterAction
             //make new decision
             AIThinkTimeRest = AIThinkInterval;
             MakeDecision();
-        }else if (myEnemyState!= EnemyState.StealthMoving && newPosition!= lastPosition)
-        {
-            lastPosition = newPosition;
-            MakeDecision();
         }
+        if (myEnemyState!= EnemyState.StealthMoving && newPosition!= lastPosition)
+        {
+            MakeChangePositionDecision();
+        }
+        lastPosition = newPosition;
     }
 
     protected virtual void MakeDecision()
@@ -101,24 +96,7 @@ public class EnemyAction : CharacterAction
             tempDirection = (targetPosition_StealthMoving - transform.position).normalized;
         }else
         {
-            switch (m_direction)
-            {
-                case Direction.Down:
-                    tempDirection = Vector3.down;
-                    break;
-                case Direction.Up:
-                    tempDirection = Vector3.up;
-                    break;
-                case Direction.Right:
-                    tempDirection = Vector3.right;
-                    break;
-                case Direction.Left:
-                    tempDirection = Vector3.left;
-                    break;
-                case Direction.Other:
-                    tempDirection = Vector3.zero;
-                    break;
-            }
+            tempDirection = DirectionEnumToVector3(m_direction);
         }
         return tempDirection;
     }
@@ -130,9 +108,63 @@ public class EnemyAction : CharacterAction
 
     protected Vector2 GetNextMoveDirectionGrillPosition()
     {
-        Vector2 offset = GetCurrentDirectionVector() * 0.5f;
+        Vector2 offset = GetCurrentDirectionVector() * 0.6f;
         Vector2 position = new Vector2(transform.position.x - m_gap, transform.position.y - m_gap)+ offset;
         return new Vector2(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y));
+    }
+
+    protected void MakeChangePositionDecision()
+    {
+        float testLength = 0.6f;
+        bool upValid = CheckDirtValid(Vector3.up * testLength);
+        bool leftValid = CheckDirtValid(Vector3.left * testLength);
+        bool downValid = CheckDirtValid(Vector3.down * testLength);
+        bool rightValid = CheckDirtValid(Vector3.right * testLength);
+        if(!rightValid && !downValid && !leftValid && !upValid)
+        {
+            print("!!! blockedall the way");
+            TryKillSelf();
+            return;
+        }
+        float deltaX = PlayerAction.instance.transform.position.x - transform.position.x;
+        float deltaY = PlayerAction.instance.transform.position.y - transform.position.y;
+        if(Mathf.Abs(deltaX)> Mathf.Abs(deltaY))
+        {
+            if (deltaX > 0 && rightValid)
+            {
+                TryTurn(Direction.Right);
+                return;
+            }
+            else if(leftValid)
+            {
+                TryTurn(Direction.Left);
+                return;
+            }
+        }
+        else
+        {
+            if (deltaY > 0 && upValid)
+            {
+                TryTurn(Direction.Up);
+                return;
+            }
+            else if (downValid)
+            {
+                TryTurn(Direction.Down);
+                return;
+            }
+        }
+        if(!CheckDirtValid(GetCurrentDirectionVector() * testLength))
+        {
+            if (upValid)
+                TryTurn(Direction.Up);
+            else if (downValid)
+                TryTurn(Direction.Down);
+            else if (rightValid)
+                TryTurn(Direction.Right);
+            else if (leftValid)
+                TryTurn(Direction.Left);
+        }
     }
 
     protected override void Turn(Direction newDirection)
@@ -158,5 +190,26 @@ public class EnemyAction : CharacterAction
                 break;
         }
         m_direction = newDirection;
+    }
+
+    protected override void SwitchAnimState(AnimationState newAnimationState)
+    {
+        base.SwitchAnimState(newAnimationState);
+        switch (newAnimationState)
+        {
+            case AnimationState.GoLeft:
+                sprite.transform.localScale = new Vector3(-1, 1, 1);
+                break;
+            case AnimationState.GoRight:
+                sprite.transform.localScale = Vector3.one;
+                //scale
+                break;
+        }
+    }
+
+    protected virtual void TryKillSelf()
+    {
+        SetState(EnemyState.Die);
+        Destroy(gameObject, 1);
     }
 }
