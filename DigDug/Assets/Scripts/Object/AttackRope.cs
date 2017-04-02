@@ -9,7 +9,9 @@ public class AttackRope : MonoBehaviour {
     private float targetScale;
     [SerializeField]
     private float positionOffsetFactor=0.1f;
-    public void Init (CharacterAction.Direction myDirection, float length, Vector3 position) {
+    private float m_scale = 1f;
+    public void Init (CharacterAction.Direction myDirection, float length, Vector3 position, float scale) {
+        m_scale = scale;
         Vector3 positionOffset = Vector3.zero;
 		if(myDirection == CharacterAction.Direction.Down)
         {
@@ -32,9 +34,9 @@ public class AttackRope : MonoBehaviour {
             positionOffset = Vector3.right * positionOffsetFactor;
         }
         transform.position = position + positionOffset;
-        targetScale = length / GetComponent<SpriteRenderer>().sprite.bounds.size.y;
+        targetScale = (length / GetComponent<SpriteRenderer>().sprite.bounds.size.y) * m_scale;
         //print(GetComponent<SpriteRenderer>().sprite.bounds.size);
-        transform.localScale = new Vector3(1, 0, 1);
+        transform.localScale = new Vector3( m_scale, 0, m_scale );
         startTime = Time.fixedTime;
     }
 	
@@ -45,7 +47,7 @@ public class AttackRope : MonoBehaviour {
             Destroy(this.gameObject);
         }else
         {
-            transform.localScale = new Vector3(1, factor * targetScale, 1);
+            transform.localScale = new Vector3( m_scale, factor * targetScale, m_scale );
         }
     }
 }

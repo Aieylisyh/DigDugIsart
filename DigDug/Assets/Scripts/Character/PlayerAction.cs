@@ -72,7 +72,7 @@ public class PlayerAction : CharacterAction {
             SwitchAnimState(AnimationState.Attack);
         }
         GameObject attackRope = (GameObject)Instantiate(prefab_attack);
-        attackRope.GetComponent<AttackRope>().Init(myDirection, shootLength, transform.position);
+        attackRope.GetComponent<AttackRope>().Init(myDirection, shootLength, transform.position, transform.localScale.x );
         Invoke("AttackEnd", attackInterval);
     }
 
