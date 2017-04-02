@@ -6,7 +6,7 @@ public class CharacterAction : MonoBehaviour
 {
     protected Animator myAnimator;
 
-    public enum Direction { Up, Down, Right, Left };
+    public enum Direction { Up, Down, Right, Left, Other };
     protected Direction myDirection = Direction.Left;
     protected enum HorizontalFacing { Right, Left };
     protected HorizontalFacing myHorizontalFacing = HorizontalFacing.Left;
@@ -23,7 +23,7 @@ public class CharacterAction : MonoBehaviour
 
     protected virtual void InitAnim()
     {
-        myAnimator = GetComponent<Animator>();
+        myAnimator = GetComponentInChildren<Animator>();
         if (!myAnimator)
             Debug.LogError("myAnimator is not set!");
     }
