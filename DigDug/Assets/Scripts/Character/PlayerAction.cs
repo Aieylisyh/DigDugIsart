@@ -18,6 +18,7 @@ public class PlayerAction : CharacterAction {
 
     [SerializeField]
     private GameObject prefab_attack;
+
     protected override void Start()
     {
         base.Start();
@@ -72,7 +73,7 @@ public class PlayerAction : CharacterAction {
             SwitchAnimState(AnimationState.Attack);
         }
         GameObject attackRope = (GameObject)Instantiate(prefab_attack);
-        attackRope.GetComponent<AttackRope>().Init(myDirection, shootLength, transform.position, transform.localScale.x );
+        attackRope.GetComponent<AttackRope>().Init(m_direction, shootLength, transform.position, transform.localScale.x );
         Invoke("AttackEnd", attackInterval);
     }
 
@@ -86,7 +87,7 @@ public class PlayerAction : CharacterAction {
     protected override Vector3 GetCurrentDirectionVector()
     {
         Vector3 tempDirection = Vector3.left;
-        switch (myDirection)
+        switch (m_direction)
         {
             case Direction.Down:
                 tempDirection = Vector3.down;
@@ -108,12 +109,14 @@ public class PlayerAction : CharacterAction {
     {
         //TODO: must turn in a turning point
         //if digging current block is not finished, continue digging, else turn
-        Turn(newDirection);
+        //Turn(newDirection);
+        m_nextDirection = newDirection;
+        
     }
 
-    protected override void Turn(Direction newDirection)
-    {
+    protected override void Turn(Direction newDirection) {
         base.Turn(newDirection);
+        print("TURN");
         switch (newDirection)
         {
             case Direction.Down:
@@ -144,7 +147,7 @@ public class PlayerAction : CharacterAction {
                 myHorizontalFacing = HorizontalFacing.Right;
                 break;
         }
-        myDirection = newDirection;
+        m_direction = newDirection;
     }
 
     protected override void SwitchAnimState(AnimationState newAnimationState)
