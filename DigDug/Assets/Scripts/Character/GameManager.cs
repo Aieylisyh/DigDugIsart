@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public uint LastScore { get; private set; }
+    public uint Score;
+
+    void Awake () {
+        Score = 0;
+        Score = (uint)Random.Range(10, 5490); // DEBUG
+    }
+
 	public void Win () {
         EndGame( true );
     }
@@ -13,6 +21,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void EndGame (bool hasWin) {
+        LastScore = Score;
         UIManager.instance.OpenEndGame( hasWin );
     }
 }

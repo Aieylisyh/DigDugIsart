@@ -6,10 +6,38 @@ using UnityEngine.UI;
 public class ScoresViewer : MonoBehaviour {
 
     public HorizontalOrVerticalLayoutGroup ScoreLayout;
-    
-	void Awake () {
+    public ScoreElement ScoreUIElement;
+
+    List<SaveManager.Score> m_scores;
+
+
+    void Awake () {
 		
 	}
+
+    void Start () {
+        GetScores();
+        FillScores();
+    }
+
+    void GetScores () {
+        m_scores = SaveManager.GetScores();
+    }
+
+    void FillScores () {
+
+        m_scores.Sort(delegate (SaveManager.Score x, SaveManager.Score y) {
+            if (x.value < y.value) return -1;
+            else if (x.value > y.value) return 1;
+            else return 0;
+        });
+
+        for (int i = 0; i < m_scores.Count; ++i) {
+            ScoreElement se = Instantiate( ScoreUIElement );
+            se.transform.SetParent( ScoreLayout.transform );
+            se.Init( 0, m_scores[i].name, m_scores[i].value );
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {
