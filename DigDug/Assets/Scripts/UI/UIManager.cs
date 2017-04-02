@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour {
     public Canvas TitleCardMenu;
     public Canvas ScoreMenu;
     public Canvas EndGameMenu;
+    public Hud HUD; 
 
     Canvas m_opened;
 
@@ -23,6 +24,18 @@ public class UIManager : MonoBehaviour {
 
     public void StartGame () {
         SceneManager.LoadScene( GameSceneName );
+    }
+
+    public void OpenHud() {
+        if (Hud.instance == null) {
+            Instantiate( HUD );
+        }
+    }
+
+    public void CloseHud() {
+        if (Hud.instance != null) {
+            Destroy( Hud.instance.gameObject );
+        }
     }
 
     public void StartMenu () {
@@ -51,5 +64,9 @@ public class UIManager : MonoBehaviour {
         CloseMenu();
         m_opened = Instantiate( menu );
         if (!m_opened.enabled) m_opened.enabled = true;
+    }
+
+    void OnDestroy() {
+        instance = null;
     }
 }
