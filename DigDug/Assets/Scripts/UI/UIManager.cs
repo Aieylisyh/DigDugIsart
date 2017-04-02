@@ -1,0 +1,53 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class UIManager : MonoBehaviour {
+
+    public static UIManager instance;
+
+    public string GameSceneName = "Game";
+    public string MenuSceneName = "Menu";
+    public Canvas TitleCardMenu;
+    public Canvas ScoreMenu;
+    public Canvas EndGameMenu;
+
+    Canvas m_opened;
+
+    void Awake () {
+        if (instance == null) instance = this;
+        else Destroy(this.gameObject);
+    }
+
+    public void StartGame () {
+        SceneManager.LoadScene( GameSceneName );
+    }
+
+    public void StartMenu () {
+        SceneManager.LoadScene( MenuSceneName );
+    }
+
+    public void OpenScores () {
+        Open( ScoreMenu );
+    }
+
+    public void OpenTitleCard () {
+        Open( TitleCardMenu );
+    }
+
+    public void OpenEndGame () {
+        Open( EndGameMenu );
+    }
+
+    public void CloseMenu () {
+        if (m_opened != null && m_opened.gameObject != null) Destroy( m_opened.gameObject );
+    }
+
+    void Open (Canvas menu) {
+        CloseMenu();
+        m_opened = Instantiate( menu );
+        if (!m_opened.enabled) m_opened.enabled = true;
+    }
+}
