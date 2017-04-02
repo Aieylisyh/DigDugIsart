@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public void StartMenu () {
+        SceneManager.LoadSceneAsync( GameSceneName );
         SceneManager.LoadScene( MenuSceneName );
     }
 
@@ -37,8 +38,9 @@ public class UIManager : MonoBehaviour {
         Open( TitleCardMenu );
     }
 
-    public void OpenEndGame () {
+    public void OpenEndGame (bool hasWin) {
         Open( EndGameMenu );
+        m_opened.GetComponent<EndGame>().Init( hasWin );
     }
 
     public void CloseMenu () {
