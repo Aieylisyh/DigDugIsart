@@ -10,6 +10,9 @@ public class AttackRope : MonoBehaviour {
     [SerializeField]
     private float positionOffsetFactor=0.1f;
     private float m_scale = 1f;
+    protected MeshCreator m_world;
+    [SerializeField]
+    private Transform attackPartTransform;
     public void Init (CharacterAction.Direction myDirection, float length, Vector3 position, float scale) {
         m_scale = scale;
         Vector3 positionOffset = Vector3.zero;
@@ -38,6 +41,7 @@ public class AttackRope : MonoBehaviour {
         //print(GetComponent<SpriteRenderer>().sprite.bounds.size);
         transform.localScale = new Vector3( m_scale, 0, m_scale );
         startTime = Time.fixedTime;
+        m_world = MeshCreator.instance;
     }
 	
 	void FixedUpdate () {
@@ -48,6 +52,10 @@ public class AttackRope : MonoBehaviour {
         }else
         {
             transform.localScale = new Vector3( m_scale, factor * targetScale, m_scale );
+        }
+        if (m_world.GetBlockType(Mathf.RoundToInt(attackPartTransform.position.x - 0.5f), Mathf.RoundToInt(attackPartTransform.position.y - 0.5f)) != MeshCreator.MAP_TYPE.EMPTY)
+        {
+            Destroy(this.gameObject);
         }
     }
 }

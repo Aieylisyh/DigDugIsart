@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragonAction : EnemyAction
+public class NinjaAction : EnemyAction
 {
+    public enum NinjaType { Shuriken, Stealth}
+    [SerializeField]
+    private NinjaType myNinjaType;
     [Header("attack flame")]
     [SerializeField]
     private GameObject prefab_attack;
@@ -15,10 +18,10 @@ public class DragonAction : EnemyAction
     [SerializeField]
     private float attackDistanceMax = 5;
     [SerializeField]
-    [Range(0.4f, 2)]
+    [Range(0.1f, 2)]
     protected float attackPrepareTime = 1.0f;
     [SerializeField]
-    [Range(0.4f, 2)]
+    [Range(0.1f, 2)]
     protected float attackEndTime = 1.0f;
     [SerializeField]
     [Range(0.05f, 1)]
@@ -37,10 +40,10 @@ public class DragonAction : EnemyAction
     protected override void Start()
     {
         base.Start();
-        myEnemyType = EnemyType.Dragon;
+        myEnemyType = EnemyType.Ninja;
         stealthCoolDownRest = stealthCoolDown;
         attackCoolDownRest = attackCoolDown;
-        inflatedClipName = "dragon_inflated";
+        inflatedClipName = "ninja_inflated"; 
     }
 
     protected override void MakeDecision()
@@ -55,17 +58,19 @@ public class DragonAction : EnemyAction
                 SetState(EnemyState.Moving);
                 break;
             case EnemyState.Moving:
-                if (stealthCoolDownRest <= 0
+                if (myNinjaType == NinjaType.Stealth
+                    && stealthCoolDownRest <= 0
                     && GetDistanceToPlayer() > stealthMoveDistanceMin
-                    && GetDistanceToPlayer() < stealthMoveDistanceMax 
+                    && GetDistanceToPlayer() < stealthMoveDistanceMax
                     && Random.value < stealthMoveChance)
                 {
                     stealthCoolDownRest = stealthCoolDown;
                     SetState(EnemyState.StealthMoving);
                     return;
                 }
-                if (attackCoolDownRest <= 0
-                    && Mathf.Abs(PlayerAction.instance.transform.position.y - this.transform.position.y)< 2.2f
+                if (myNinjaType == NinjaType.Shuriken
+                    && attackCoolDownRest <= 0
+                    && Mathf.Abs(PlayerAction.instance.transform.position.y - this.transform.position.y) < 2.2f
                     && GetDistanceToPlayer() > attackDistanceMin
                     && GetDistanceToPlayer() < attackDistanceMax
                     && Random.value < attackChance)
@@ -82,6 +87,16 @@ public class DragonAction : EnemyAction
     protected override void Move()
     {
         base.Move();
+    }
+
+    protected override void ContinueState(EnemyState pState)
+    {
+        base.ContinueState(pState);
+        switch (pState)
+        {
+            case EnemyState.Moving:
+                break;
+        }
     }
 
     protected override void ExitState(EnemyState pState)
@@ -104,7 +119,7 @@ public class DragonAction : EnemyAction
                 break;
             case EnemyState.BeingInflated:
                 //myAnimator.SetTrigger("endInflat");
-                //myAnimator.Play("dragon_walk");
+                //myAnimator.Play("ninja_walk");
                 break;
         }
         myAnimator.speed = 1;
@@ -154,7 +169,7 @@ public class DragonAction : EnemyAction
     private void Attack()
     {
         GameObject go = (GameObject)Instantiate(prefab_attack, transform.position, Quaternion.identity);
-        go.transform.localScale = new Vector3(sprite.transform.localScale.x,1,1);
+        go.GetComponent<Shuriken>().direction = DirectionEnumToVector3(m_direction);
         Invoke("StopAttack", attackEndTime);
     }
 
@@ -165,14 +180,13 @@ public class DragonAction : EnemyAction
 
     private void StopStealth()
     {
-        //print("StopStealth");
         SetState(EnemyState.Idle);
     }
 
     protected override void ResumeInflated()
     {
         //myAnimator.SetTrigger("endInflat");
-        myAnimator.Play("dragon_walk");
+        myAnimator.Play("ninja_walk");
         SetState(EnemyState.Idle);
     }
 }

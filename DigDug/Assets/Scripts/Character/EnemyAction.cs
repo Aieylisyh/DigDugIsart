@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class EnemyAction : CharacterAction
 {
-    [SerializeField]
     protected MeshCreator m_world;
     protected enum EnemyState { Idle, Die, StealthMoving, Attacking, Moving, BeingInflated };
-    [SerializeField]//debug only
+    //[SerializeField]//debug only
     protected EnemyState myEnemyState = EnemyState.Idle;
     protected enum EnemyType { Other, Dragon, Ninja };//to be extended
     protected EnemyType myEnemyType = EnemyType.Other;
@@ -29,6 +28,17 @@ public class EnemyAction : CharacterAction
     private int life = 4;
     private int lifeCount;
 
+    protected string inflatedClipName;
+
+    [HideInInspector]
+    public bool isNotHarmful
+    {
+        get
+        {
+            return (myEnemyState == EnemyState.StealthMoving|| myEnemyState == EnemyState.Die);
+        }
+    }
+
     protected override void Start()
     {
         base.Start();
@@ -37,6 +47,7 @@ public class EnemyAction : CharacterAction
         lastPosition = GetNextMoveDirectionGrillPosition();
         lifeCount = life;
         lifeRegTimeCount = lifeRegTime;
+        m_world = MeshCreator.instance;
     }
 
     protected float GetDistanceToPlayer()
@@ -58,10 +69,10 @@ public class EnemyAction : CharacterAction
                 lifeRegTimeCount = lifeRegTime;
                 if (lifeCount < life)
                 {
-                    myAnimator.Play("dragon_inflated", 0, 1 - ((float)(lifeCount + 0.5f)) / life);
+                    myAnimator.Play(inflatedClipName, 0, 1 - ((float)(lifeCount + 0.5f)) / life);
                 }else
                 {
-                    SetState(EnemyState.Idle);
+                    ResumeInflated();
                 }
             }
                 
@@ -159,6 +170,11 @@ public class EnemyAction : CharacterAction
             TryKillSelf();
             return;
         }
+        if (CheckDirtValid(GetCurrentDirectionVector() * testLength) && CheckDirtValid(-GetCurrentDirectionVector() * testLength))
+        {
+            //print("continue direction");
+            return;
+        }
         float deltaX = PlayerAction.instance.transform.position.x - transform.position.x;
         float deltaY = PlayerAction.instance.transform.position.y - transform.position.y;
         if(Mathf.Abs(deltaX)> Mathf.Abs(deltaY))
@@ -189,14 +205,28 @@ public class EnemyAction : CharacterAction
         }
         if(!CheckDirtValid(GetCurrentDirectionVector() * testLength))
         {
-            if (upValid)
-                TryTurn(Direction.Up);
-            else if (downValid)
-                TryTurn(Direction.Down);
-            else if (rightValid)
-                TryTurn(Direction.Right);
-            else if (leftValid)
-                TryTurn(Direction.Left);
+            if (Random.value < 0.5f)
+            {
+                if (upValid)
+                    TryTurn(Direction.Up);
+                else if (downValid)
+                    TryTurn(Direction.Down);
+                else if (rightValid)
+                    TryTurn(Direction.Right);
+                else if (leftValid)
+                    TryTurn(Direction.Left);
+            }
+            else
+            {
+                if (rightValid)
+                    TryTurn(Direction.Right);
+                else if (leftValid)
+                    TryTurn(Direction.Left);
+                else if (upValid)
+                    TryTurn(Direction.Up);
+                else if (downValid)
+                    TryTurn(Direction.Down);
+            }
         }
     }
 
@@ -266,7 +296,11 @@ public class EnemyAction : CharacterAction
         {
             SetState(EnemyState.BeingInflated);
             lifeRegTimeCount = lifeRegTime;
-            myAnimator.Play("dragon_inflated", 0, 1 - ((float)(lifeCount+0.5f)) / life);
+            myAnimator.Play(inflatedClipName, 0, 1 - ((float)(lifeCount + 0.5f)) / life);
         }
+    }
+
+    protected virtual void ResumeInflated()
+    {
     }
 }
