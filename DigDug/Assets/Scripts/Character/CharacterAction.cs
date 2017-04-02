@@ -78,13 +78,11 @@ public class CharacterAction : MonoBehaviour
                             if (OnGrid(transform.localPosition.x)) {
                                 Turn( m_nextDirection );
                             }
-                            print( "x: " + transform.localPosition.x + " --> " + Mathf.Abs( Mathf.Floor( transform.localPosition.x ) - 0.5f ) );
                             break;
                         default:
                             if (OnGrid( transform.localPosition.y )) {
                                 Turn( m_nextDirection );
                             }
-                            print( "y: " + transform.localPosition.y + " --> " + Mathf.Abs( Mathf.Floor( transform.localPosition.y ) - 0.5f) );
                             break;
                     }
                 }

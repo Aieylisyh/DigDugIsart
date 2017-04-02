@@ -112,7 +112,6 @@ public class PlayerAction : CharacterAction {
 
     protected override void Turn(Direction newDirection) {
         base.Turn(newDirection);
-        print("TURN");
         switch (newDirection)
         {
             case Direction.Down:
