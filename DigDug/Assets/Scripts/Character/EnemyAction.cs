@@ -28,6 +28,8 @@ public class EnemyAction : CharacterAction
     private int life = 4;
     private int lifeCount;
 
+    [SerializeField]
+    private uint killScore = 50;
     protected string inflatedClipName;
 
     [HideInInspector]
@@ -274,6 +276,7 @@ public class EnemyAction : CharacterAction
     {
         SetState(EnemyState.Die);
         Destroy(gameObject, 1);
+        GameManager.instance.Score += killScore;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
